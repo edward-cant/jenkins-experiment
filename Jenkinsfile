@@ -15,8 +15,7 @@ pipeline {
 
         stage('Email Test') {
             steps {
-                recipients = "${notification emails}"
-                recipients.split().each { recipient ->
+                "${notification emails}".split().each { recipient ->
                     sendEmail(recipient, "jenkins-experiment", "sending test email")
                 }
             }
