@@ -47,7 +47,7 @@ pipeline {
 void sendEmail(String recipient, String subject, String message) {
     emailext(
         subject: "${currentBuild.projectName}: ${subject}",
-        mimeType: 'HTML/text',
+        mimeType: 'text/html',
         to: recipient,
         body: message
     ) 
