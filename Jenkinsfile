@@ -9,7 +9,7 @@ pipeline {
 
         stage('Email Test') {
             steps {
-                sendEmail("jenkins-experiment sending test email")
+                sendEmail("jenkins-experiment", "sending test email")
             }
         }
     }
