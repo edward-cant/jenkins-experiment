@@ -26,7 +26,6 @@ void sendEmail(String subject, String message) {
             subject: subject,
             mimeType: 'text/html',
             to: recipient + '@calnexsol.com',
-            from: recipient + '@calnexsol.com',
             body: message
         ) 
     }
