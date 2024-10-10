@@ -13,13 +13,19 @@ pipeline {
             }
         }
 
-        stage('Email Test') {
+        stage('Stage 3') {
             steps {
-                "${notification emails}".split().each { recipient ->
-                    sendEmail(recipient, "jenkins-experiment", "sending test email")
-                }
+                print "parameter: ${notification emails}"
             }
         }
+
+        // stage('Email Test') {
+        //     steps {
+        //         "${fruit}".split().each { recipient ->
+        //             sendEmail(recipient, "jenkins-experiment", "sending test email")
+        //         }
+        //     }
+        // }
     }
 }
 
