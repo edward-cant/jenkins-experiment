@@ -15,7 +15,7 @@ pipeline {
 
         stage('Stage 3') {
             steps {
-                print "parameter: ${notification emails}"
+                print "parameter: ${emails}"
             }
         }
 
