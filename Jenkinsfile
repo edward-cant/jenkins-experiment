@@ -34,8 +34,7 @@ pipeline {
             steps {
                 script {
                     "${emails}".split("\n").each { recipient ->
-                        // use project name as subject
-                        sendEmail(recipient, currentBuild.rawBuild.project.getDisplayName(), "Hello ${recipient}")
+                        sendEmail(recipient, currentBuild.displayName, "Hello ${recipient}")
                     }
                 }
             }
