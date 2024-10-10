@@ -30,13 +30,17 @@ pipeline {
             }
         }
 
-        // stage('Email Test') {
-        //     steps {
-        //         "${fruit}".split().each { recipient ->
-        //             sendEmail(recipient, "jenkins-experiment", "sending test email")
-        //         }
-        //     }
-        // }
+        stage('Email') {
+            steps {
+                script {
+                    "${emails}".split("\n").each { recipient ->
+                        // use project name as subject
+                        sendEmail(recipient, currentBuild.rawBuild.project.getDisplayName(), "Hello ${recipient}")
+                    }
+                }
+            }
+        }
+
     }
 }
 
