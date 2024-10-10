@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     "${emails}".split("\n").each { recipient ->
-                        sendEmail(recipient, currentBuild.projectName, "Hello ${recipient}")
+                        sendEmail(recipient, "Build Greeting", "Hello ${recipient}")
                     }
                 }
             }
@@ -44,17 +44,10 @@ pipeline {
 }
 
 void sendEmail(String recipient, String subject, String message) {
-    // String[] recipients = [
-    //     'edward.cant',
-    //     'edward.cant+test2',
-    // ]
-
-    // for (String recipient : recipients) {
-        emailext(
-            subject: subject,
-            mimeType: 'text/html',
-            to: recipient,
-            body: message
-        ) 
-    // }
+    emailext(
+        subject: "${currentBuild.projectName}: ${subject}",
+        mimeType: 'text/html',
+        to: recipient,
+        body: message
+    ) 
 }
