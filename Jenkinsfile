@@ -13,6 +13,12 @@ pipeline {
             }
         }
 
+        stage('Stage 2b') {
+            steps {
+                print "parameter: ${build_minor}"
+            }
+        }
+
         stage('Stage 3') {
             steps {
                 print "parameter: ${emails}"
