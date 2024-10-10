@@ -47,7 +47,7 @@ pipeline {
 void sendEmail(String recipient, String subject, String message) {
     emailext(
         subject: "${currentBuild.projectName}: ${subject}",
-        mimeType: 'text/html',
+        mimeType: 'HTML/text',
         to: recipient,
         body: message
     ) 
@@ -55,18 +55,18 @@ void sendEmail(String recipient, String subject, String message) {
 
 void sendBuildInformationEmail(String recipient, String subject, String line) {
     String message = """
-        ${line}
-
-        Here is some information about the current build:
-
-        - Project Name: ${currentBuild.projectName}
-        - Build Number: ${currentBuild.number}
-        - Build Status: ${currentBuild.result}
-        - Duration: ${currentBuild.durationString}
-        - Build URL: ${currentBuild.absoluteUrl}
-
-        Best Regards,
-        Your Jenkins Build System
+        ${line}<br/>
+        <br/>
+        Here is some information about the current build:<br/>
+        <br/>
+        - Project Name: ${currentBuild.projectName}<br/>
+        - Build Number: ${currentBuild.number}<br/>
+        - Build Status: ${currentBuild.result}<br/>
+        - Duration: ${currentBuild.durationString}<br/>
+        - Build URL: ${currentBuild.absoluteUrl}<br/>
+        <br/>
+        Best Regards,<br/>
+        Your Jenkins Build System<br/>
     """
 
     sendEmail(recipient, subject, message)
