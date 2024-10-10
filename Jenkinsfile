@@ -19,6 +19,17 @@ pipeline {
             }
         }
 
+        stage('Stage 4') {
+            steps {
+                script {
+                    "${emails}".split("\n").each { recipient ->
+                        // print it for now
+                        print "recipient: ${recipient}"
+                    }
+                }
+            }
+        }
+
         // stage('Email Test') {
         //     steps {
         //         "${fruit}".split().each { recipient ->
