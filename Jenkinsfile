@@ -55,8 +55,6 @@ void sendEmail(String recipient, String subject, String message) {
 
 void sendBuildInformationEmail(String recipient, String subject, String line) {
     String message = """
-        Hello ${recipient},
-
         ${line}
 
         Here is some information about the current build:
