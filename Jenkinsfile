@@ -13,23 +13,14 @@ pipeline {
             }
         }
 
-        // stage('Email Test') {
-        //     def recipients = "${notification emails}"
-            
-        //     steps {
-        //         // Read the 'notification email' multi line string parameter
-        //         // and send emails to each of those users
-        //         // def recipients = """
-        //         //     edward.cant@calnexsol.com
-        //         //     edward.cant+test2@calnexsol.com
-        //         // """
-        //         // Get the parameter from the jenkins server build config
-
-        //         recipients.split().each { recipient ->
-        //             sendEmail(recipient, "jenkins-experiment", "sending test email")
-        //         }
-        //     }
-        // }
+        stage('Email Test') {
+            steps {
+                recipients = "${notification emails}"
+                recipients.split().each { recipient ->
+                    sendEmail(recipient, "jenkins-experiment", "sending test email")
+                }
+            }
+        }
     }
 }
 
