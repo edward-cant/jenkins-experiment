@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     "${emails}".split("\n").each { recipient ->
-                        sendEmail(recipient, currentBuild.displayName, "Hello ${recipient}")
+                        sendEmail(recipient, currentBuild.projectName, "Hello ${recipient}")
                     }
                 }
             }
